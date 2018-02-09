@@ -5,57 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Accordion</title>
-    <link rel="stylesheet" href="style.css" >
+    <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="ajax_functions.js"></script>
 </head>
 
 <body>
     
-    <script> get_json(); </script>
+    
     
     <section class="content">
         <div class="inner-content">
             
-        <h2>My Solution: </h2>
-        
-            <div class="section one">
-                <button class="accordion">
-                    <span class="heading"></span>
+            <div class="section">
+                <button class="accordion" type="button" onclick="get_json()">
+                    <span class="heading">Expand</span>
                     <i class="fa fa-angle-down"></i>
-                </button>         
-                
-                <div class="description">
-                    <p></p>
-                </div>
+                </button>  
             </div>
-            
-            <div class="section two">
-                <button class="accordion">
-                    <span class="heading"></span>
-                    <i class="fa fa-angle-down"></i>
-                </button>
-                
-                <div class="description">
-                    <p></p>
-                </div>
-            </div>
-            
-            <div class="section three">
-                <button class="accordion">
-                    <span class="heading"></span>
-                    <i class="fa fa-angle-down"></i>
-                </button>
-                
-                <div class="description">
-                    <p></p>
-                </div>
-            </div>
-
+   
         </div>
     </section>
     
-    <script src="functions.js"></script>
     
 </body>
+<script src="functions.js"></script>
 </html>

@@ -1,9 +1,9 @@
-document.addEventListener("DOMContentLoaded", function(event) {    
-    var accordion = document.getElementsByClassName("accordion");
-    
+function start_accordion() {
+    let accordion = document.getElementsByClassName("accordion");
+
     for (var i = 0; i < accordion.length; i++) {
         accordion[i].addEventListener("click", function() {
-            
+
             // Reset unclicked siblings
             for (var i = 0; i < accordion.length; i++) {
                 if (this !== accordion[i] ) {
@@ -29,4 +29,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
         });
     }
-});
+};

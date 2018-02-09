@@ -1,22 +1,32 @@
 
 // Get JSON contents
 function get_json() {
-    var req = new XMLHttpRequest();
-        
-    req.open("GET", "accordion-data.json", true)
-    req.setRequestHeader("Content-type", "application/json", true);
-    req.onreadystatechange = function () {
-        if (req.readyState == 4 && req.status == 200) {
-            var data = JSON.parse(req.responseText);
-            var heading = document.getElementsByClassName("accordion");
-            var content = document.getElementsByClassName("description");
-            var data_length = data.blocks.length;
-                
-            for(var i=0; i < data_length; i++) {
-                heading[i].getElementsByClassName("heading")[0].innerHTML = data.blocks[i].heading;
-                content[i].getElementsByTagName('p')[0].innerHTML = data.blocks[i].content;
+
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            // Codes to execute 
+            let data = JSON.parse(xhr.responseText);
+            let dataLength = data.blocks.length;
+            let content = document.getElementsByClassName("inner-content");
+            let tags = '';
+            
+            for(let i = 0; i < dataLength; i++) {
+                tags += "<div class='section'>";
+                    tags += "<button class='accordion'>";
+                        tags += "<span class='heading'>" + data.blocks[i].heading + "</span>";
+                        tags += "<i class='fa fa-angle-down'></i>";
+                    tags += "</button>";
+                // Hidden description
+                    tags += "<div class='description'>";
+                        tags += "<p>" + data.blocks[i].content + "</p>";
+                    tags += "</div>";
+                tags += "</div>"; // End div for section class
             }
+            content[0].innerHTML = tags;
+            start_accordion(); //Initialize the accordion to new elements
         }
     }
-    req.send(null);
+    xhr.open("GET", "accordion-data.json", true)
+    xhr.send();
 }
