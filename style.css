@@ -3,11 +3,6 @@
     margin: 0;
 }
 
-h2 {
-    padding: 15px;
-    font-size: 250%;
-}
-
 p {
     padding: 25px 15px;
     text-align: justify;
@@ -19,36 +14,42 @@ p {
     width: 100%;
 }
 
-.inner-content {
+.container {
     margin: 0 auto;
     max-width: 800px;
 }
 
-.section {
+.accordion {
     width: 80%;
     border: solid 1px rgb(235, 235, 235);
     margin: 5px;
 }
 
-
-.accordion {
-    background-color: rgb(158, 56, 176);
+.accordion button {
     padding: 10px 5px;
     width: 100%;
     text-align: left;
     border-style: none;
     color: rgb(255, 255, 255);
     cursor: pointer;
+    background-color: rgb(158, 56, 176);
     
     -webkit-box-shadow:0px 1px 1px rgb(111, 39, 125);
     -moz-box-shadow:0px 1px 1px rgb(111, 39, 125);
     box-shadow:0px 2px 2px rgb(111, 39, 125);
 }
 
-.accordion:hover {
+.accordion button:hover {
     background-color: rgb(147,112,219);
 }
 
+.accordion .active {
+    background-color: rgb(104, 68, 183);
+    
+    -webkit-box-shadow: 0px 3px 3px rgb(76, 49, 133);
+    -moz-box-shadow: 0px 3px 3px rgb(76, 49, 133);
+    box-shadow: 0px 3px 3px rgb(76, 49, 133);
+}
 
 .heading {
     display: block;
@@ -73,27 +74,16 @@ p {
     transition: max-height 1s ease-in-out;
 }
 
-.clicked {
-    background-color: rgb(104, 68, 183);
-    
-    -webkit-box-shadow: 0px 3px 3px rgb(76, 49, 133);
-    -moz-box-shadow: 0px 3px 3px rgb(76, 49, 133);
-    box-shadow: 0px 3px 3px rgb(76, 49, 133);
-}
 
 
 /* Media */
 @media screen and (max-width: 768px) {
     
-    h2 {
-        font-size: 150%;
-    }
-    
     p {
         font-size: 110%;
     }
     
-    .section {
+    .accordion {
         margin: 3px;
         width: 95%;
     }
